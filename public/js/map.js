@@ -1,10 +1,10 @@
-mapboxgl.accessToken = mapToken;
+mapboxgl.accessToken = 'pk.eyJ1Ijoic2FqamFuLXkiLCJhIjoiY21lZG9vMnFtMGNtZzJqc2FiajF5M3o4MCJ9.cdSzZpMVBviV9nVPdnD7ow';
 
 const map = new mapboxgl.Map({
   container: "map", // container ID
   // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
   style: "mapbox://styles/mapbox/streets-v12", // style URL
-  center: listing.geometry.coordinates, // starting position [lng, lat]
+  center: window.listing.geometry.coordinates, // starting position [lng, lat]
   zoom: 0, // starting zoom
   attributionControl: false,
 });
@@ -32,6 +32,7 @@ map.flyTo({
     return t;
   },
 });
+
 
 
 //Pulsing Dot
@@ -92,6 +93,7 @@ const pulsingDot = {
 
 map.on("load", () => {
   map.addImage("pulsing-dot", pulsingDot, { pixelRatio: 2 });
+  console.log("Map loaded");
 
   map.addSource("dot-point", {
     type: "geojson",
