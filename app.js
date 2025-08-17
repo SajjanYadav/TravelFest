@@ -105,6 +105,12 @@ app.use((err, req, res, next) => {
     // res.status(statusCode).send(message);
 });
 
+app.get("/health", (req, res) => {
+    res.json({
+        message:"Up and healthy",
+    })
+})
+
 app.listen(8080, () => {
     console.log("server is listening to port 8080");
 });
